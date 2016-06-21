@@ -20,7 +20,7 @@
 #endif
 #include "remote_monitoring.h"
 #include "NTPClient.h"
-
+#include "AzureIoTHubClient.h"
 
 #ifdef ARDUINO_SAMD_FEATHER_M0
 #define WINC_CS   8
@@ -32,6 +32,8 @@
 Adafruit_WINC1500 WiFi(WINC_CS, WINC_IRQ, WINC_RST);
 #endif
 
+Adafruit_WINC1500SSLClient sslClient;
+AzureIoTHubClient iotHubClient(sslClient);
 
 static const char ssid[] = "[Your WiFi network SSID or name]";
 static const char pass[] = "[Your WiFi network WPA password or WEP key]";

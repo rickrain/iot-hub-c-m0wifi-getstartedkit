@@ -6,10 +6,16 @@
 #include <Adafruit_BME280.h>
 #include "bme280.h"
 
-const int Bme280_cs_pin__i = 5;
+//const int Bme280_cs_pin__i = 5;
 bool Bme_init_result = false;
-Adafruit_BME280 bme(Bme280_cs_pin__i);
+//Adafruit_BME280 bme(Bme280_cs_pin__i);
 
+#define BME_SCK 13
+#define BME_MISO 12
+#define BME_MOSI 11 
+#define BME_CS 10
+
+Adafruit_BME280 bme(BME_CS, BME_MOSI, BME_MISO,  BME_SCK);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 void initBme(void)
